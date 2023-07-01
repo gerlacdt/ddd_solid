@@ -9,7 +9,7 @@ import java.util.List;
 public class OrderService {
 
     public Order getOrder(String id) {
-        return new Order(id);
+        return new Order(id, "itemId", 100);
     }
 
     public List<Order> getOrdersByUser(String userId) {
@@ -18,7 +18,7 @@ public class OrderService {
 
     public Order createOrder(OrderParams params) {
         String id = "randomOrderId";
-        return new Order(id);
+        return new Order(id, params.getItemId(), params.getAmount());
     }
 
     public void updateOrder(Order order) {

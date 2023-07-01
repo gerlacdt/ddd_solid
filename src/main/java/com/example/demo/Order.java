@@ -4,18 +4,33 @@ import java.util.Objects;
 
 public class Order {
 
-    private String id;
+    private final String id;
+    private final String itemId;
+    private final int amount;
 
-    public Order(String id) {
+    public Order(String id, String itemId, int amount) {
         if (null == id) {
-            throw new IllegalArgumentException("OrderID must not be null");
+            throw new IllegalArgumentException("id must not be null");
+        }
+        if (null == itemId) {
+            throw new IllegalArgumentException("itemId must not be null");
         }
 
+        this.itemId = itemId;
+        this.amount = amount;
         this.id = id;
     }
 
     public String getId() {
         return id;
+    }
+
+    public String getItemId() {
+        return itemId;
+    }
+
+    public int getAmount() {
+        return amount;
     }
 
     @Override
