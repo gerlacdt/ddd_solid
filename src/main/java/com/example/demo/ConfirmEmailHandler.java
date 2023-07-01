@@ -6,6 +6,6 @@ import org.springframework.stereotype.Component;
 public class ConfirmEmailHandler implements EventHandler<OrderCreatedEvent> {
     @Override
     public void handle(OrderCreatedEvent orderCreatedEvent) {
-        System.out.println("sent confirmation email to customer");
+        System.out.println("[EVENT] sent confirmation email to customer");
     }
 }

@@ -10,14 +10,18 @@ public class CreateOrderUseCase implements ICreateOrderUseCase {
     private final EventHandler<OrderCreatedEvent> eventHandler;
 
     @Autowired
-    public CreateOrderUseCase(@Qualifier("compositeCreatedOrderEventHandler") EventHandler<OrderCreatedEvent> eventHandler) {
+    public CreateOrderUseCase(@Qualifier("compositeOrderCreatedEventHandler") EventHandler<OrderCreatedEvent> eventHandler) {
         this.eventHandler = eventHandler;
     }
 
     @Override
     public Order createOrder(OrderParams params) {
         String id = "randomOrderId";
-        return new Order(id, params.getItemId(), params.getAmount());
+        Order order = new Order(id, params.getItemId(), params.getAmount());
+
+        eventHandler.handle(new OrderCreatedEvent(order));
+
+        return order;
 
     }
 }

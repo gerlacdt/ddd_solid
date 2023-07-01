@@ -7,13 +7,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@Qualifier("compositeCreatedOrderEventHandler")
-public class CompositeCreatedOrderEventHandler implements EventHandler<OrderCreatedEvent> {
+@Qualifier("compositeOrderCreatedEventHandler")
+public class CompositeOrderCreatedEventHandler implements EventHandler<OrderCreatedEvent> {
 
     private final List<EventHandler<OrderCreatedEvent>> eventHandlers;
 
     @Autowired
-    public CompositeCreatedOrderEventHandler(List<EventHandler<OrderCreatedEvent>> eventHandlers) {
+    public CompositeOrderCreatedEventHandler(List<EventHandler<OrderCreatedEvent>> eventHandlers) {
         this.eventHandlers = eventHandlers;
     }
 
