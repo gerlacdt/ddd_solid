@@ -18,4 +18,8 @@ public class OrderParams {
     this.itemId = itemId;
     this.amount = amount;
   }
+
+  public String toString() {
+    return String.format("[itemId: %s, amount: %d]", this.itemId, this.amount);
+  }
 }

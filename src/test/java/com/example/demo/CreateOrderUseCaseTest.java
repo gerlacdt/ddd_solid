@@ -5,12 +5,15 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 public class CreateOrderUseCaseTest {
 
-  @Autowired CreateOrderUseCase sut;
+  @Autowired
+  @Qualifier("decoratedCreateOrderUseCase")
+  private ICreateOrderUseCase sut;
 
   @Test
   public void createOrderTest_validInput_ok() {
