@@ -2,20 +2,20 @@ package com.example.demo;
 
 public class OrderParams {
 
-    private final String itemId;
+  private final String itemId;
 
-    public String getItemId() {
-        return itemId;
-    }
+  public String getItemId() {
+    return itemId;
+  }
 
-    public int getAmount() {
-        return amount;
-    }
+  public int getAmount() {
+    return amount;
+  }
 
-    private final int amount;
+  private final int amount;
 
-    public OrderParams(String itemId, int amount) {
-        this.itemId = itemId;
-        this.amount = amount;
-    }
+  public OrderParams(String itemId, int amount) {
+    this.itemId = itemId;
+    this.amount = amount;
+  }
 }

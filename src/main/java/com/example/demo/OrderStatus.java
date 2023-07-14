@@ -1,4 +1,3 @@
 package com.example.demo;
 
-public class OrderStatus {
-}
+public class OrderStatus {}

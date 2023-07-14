@@ -7,21 +7,22 @@ import org.springframework.stereotype.Service;
 @Service
 public class CreateOrderUseCase implements ICreateOrderUseCase {
 
-    private final EventHandler<OrderCreatedEvent> eventHandler;
+  private final EventHandler<OrderCreatedEvent> eventHandler;
 
-    @Autowired
-    public CreateOrderUseCase(@Qualifier("compositeOrderCreatedEventHandler") EventHandler<OrderCreatedEvent> eventHandler) {
-        this.eventHandler = eventHandler;
-    }
+  @Autowired
+  public CreateOrderUseCase(
+      @Qualifier("compositeOrderCreatedEventHandler")
+          EventHandler<OrderCreatedEvent> eventHandler) {
+    this.eventHandler = eventHandler;
+  }
 
-    @Override
-    public Order createOrder(OrderParams params) {
-        String id = "randomOrderId";
-        Order order = new Order(id, params.getItemId(), params.getAmount());
+  @Override
+  public Order createOrder(OrderParams params) {
+    String id = "randomOrderId";
+    Order order = new Order(id, params.getItemId(), params.getAmount());
 
-        eventHandler.handle(new OrderCreatedEvent(order));
+    eventHandler.handle(new OrderCreatedEvent(order));
 
-        return order;
-
-    }
+    return order;
+  }
 }
